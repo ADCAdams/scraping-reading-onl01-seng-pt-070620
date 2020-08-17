@@ -7,9 +7,11 @@ html2= open("https://newyork.craigslist.org/search/sss?search_distance=1&postal=
 
 doc = Nokogiri::HTML(html)
 doc2 = Nokogiri::HTML(html2)
-puts doc2.css(".rows.result-row.result-title hdrlnk")
+courses2= doc2.css(".rows.result-row")
 
-
+courses2.each do |course|
+  puts course.text.strip
+end
 
 doc.css(".headline-26OIBN").text
 courses = doc.css(".inlineMobileLeft-2Yo002.imageTextBlockGrid3-2XAK6G")
